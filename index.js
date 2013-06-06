@@ -7,11 +7,13 @@
             isArguments = is.isArguments;
 
         function argsToArray(args, slice) {
-            if (!isArguments(args)) {
-                throw new TypeError("args must be an Arguments object");
-            }
+            var i = -1, j = 0, l = args.length, ret = [];
             slice = slice || 0;
-            return pSlice.call(args, slice);
+            i += slice;
+            while (++i < l) {
+                ret[j++] = args[i];
+            }
+            return ret;
         }
 
 
